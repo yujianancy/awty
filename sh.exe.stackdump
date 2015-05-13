@@ -5,9 +5,9 @@ ebp=0028F7F4 esp=0028F7CC program=C:\Users\jia\AppData\Local\GitHub\PortableGit_
 cs=0023 ds=002B es=002B fs=0053 gs=002B ss=002B
 Stack trace:
 Frame     Function  Args
-0028F7F4  68001FE4  (0028FCC0, 71A943A5, 01D08DCD, 71A943A5)
+0028F7F4  68001FE4  (0028FCC0, C9DEC404, 01D08DCD, C9DEC404)
 0028F814  680022D9  (0028F9C4, 00040000, E8B08DE5, 97E6A1B1)
 0028F834  6801367D  (0028FCC0, 00000000, 00110000, 00000000)
 0028FD00  6805E475  (0000003C, 80000000, 0000002C, 2FAF6009)
-2476824 [main] sh 4032 handle_exceptions: Exception: STATUS_ACCESS_VIOLATION
-2517570 [main] sh 4032 handle_exceptions: Error while dumping state (probably corrupted stack)
+ 910209 [main] sh 5820 handle_exceptions: Exception: STATUS_ACCESS_VIOLATION
+ 946533 [main] sh 5820 handle_exceptions: Error while dumping state (probably corrupted stack)
