@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.telephony.SmsManager;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -78,8 +79,8 @@ public class MainActivity extends ActionBarActivity {
                         BroadcastReceiver alarmReceiver = new BroadcastReceiver() {
                             @Override
                             public void onReceive(Context context, Intent intent) {
-                                Toast.makeText(MainActivity.this, phoneNo + ": " + message, Toast.LENGTH_LONG).show();
                                 sendMsg(phoneNo, message);
+                                Log.i("SMS","message sent.");
 
 
                             }
