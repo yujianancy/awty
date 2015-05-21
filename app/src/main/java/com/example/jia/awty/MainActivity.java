@@ -6,8 +6,10 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.net.Uri;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.telephony.SmsManager;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.Menu;
@@ -77,6 +79,9 @@ public class MainActivity extends ActionBarActivity {
                             @Override
                             public void onReceive(Context context, Intent intent) {
                                 Toast.makeText(MainActivity.this, phoneNo + ": " + message, Toast.LENGTH_LONG).show();
+                                sendMsg(phoneNo, message);
+
+
                             }
                         };
                         button.setText("Stop");
@@ -100,6 +105,12 @@ public class MainActivity extends ActionBarActivity {
         });
 
     }
+
+    private void sendMsg(String number, String message) {
+        SmsManager smsManager = SmsManager.getDefault();
+        smsManager.sendTextMessage(number, null, message, null, null);
+    }
+
 
     @Override
     public void onDestroy(){
