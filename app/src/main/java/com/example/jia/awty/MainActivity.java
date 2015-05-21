@@ -79,8 +79,17 @@ public class MainActivity extends ActionBarActivity {
                         BroadcastReceiver alarmReceiver = new BroadcastReceiver() {
                             @Override
                             public void onReceive(Context context, Intent intent) {
-                                sendMsg(phoneNo, message);
-                                Log.i("SMS","message sent.");
+                                try {
+                                    SmsManager smsManager = SmsManager.getDefault();
+                                    smsManager.sendTextMessage(phoneNo, null, message, null, null);
+                                    Toast.makeText(getApplicationContext(), "SMS Sent!",
+                                            Toast.LENGTH_LONG).show();
+                                } catch (Exception e) {
+                                    Toast.makeText(getApplicationContext(),
+                                            "SMS faild, please try again later!",
+                                            Toast.LENGTH_LONG).show();
+                                    e.printStackTrace();
+                                }
 
 
                             }
@@ -107,10 +116,10 @@ public class MainActivity extends ActionBarActivity {
 
     }
 
-    private void sendMsg(String number, String message) {
+   /* private void sendMsg(String number, String message) {
         SmsManager smsManager = SmsManager.getDefault();
         smsManager.sendTextMessage(number, null, message, null, null);
-    }
+    }*/
 
 
     @Override
